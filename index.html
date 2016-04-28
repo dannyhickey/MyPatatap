@@ -6,40 +6,6 @@
     <link rel="stylesheet" href="styles.css">
 <script type="text/paperscript" canvas="myCanvas">
   
-  for (var i = 0; i < 1000; i+=100) {
-      for (var j = 0; j < 10000; j+=100)
-      {
-        var myCircle = new Path.Circle(new Point(j, i), 10);
-        myCircle.fillColor = generateRandomColours(100);
-      }  
-  }
-
-  function randomColour(){
-  //choose a "red" from 0 to 255
-  var r = Math.floor(Math.random() * 256);
-  
-  //choose a "green" from 0 to 255
-  var g = Math.floor(Math.random() * 256);
-  
-  //choose a "blue" from 0 to 255
-  var b = Math.floor(Math.random() * 256);
-
-  //"rgb(r, g, b)"
-  return "rgb(" + r + ", " + g + ", " + b + ")";
-}
-
-
-function generateRandomColours(num)
-{
-  //make empty array
-  var arr = [];
-  //add "num" random colours to the array
-  for (var i = 0; i < num; i++) {
-    //push random colour to the array
-    arr.push(randomColour());
-  }
-  return arr;
-}
 
 </script> 
 </head>

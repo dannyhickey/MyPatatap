@@ -8,11 +8,14 @@
 <script type="text/paperscript" canvas="myCanvas">
   function onKeyDown(event) {
 
-  var rand = Point.random();//random point between zero and one non inclusive.
+  	var rand = Point.random();//random point between zero and one non inclusive.
 
   	var screenCanvas = new Point(view.size.width, view.size.height);// storing the maximum screen width and height in screenCanvas
+
+  	var pos = screenCanvas * rand;// the pos variable stores a random generated point on the screen
+
 	// When a key is pressed, draw circle
-	 new Path.Circle(screenCanvas, 50).fillColor = "white";//drawing a white circle at the screens max width and height position (bottom-right)
+	 new Path.Circle(pos, 50).fillColor = "white";//drawing a white circle at a random 'pos' on the screen.
 }
 
 </script> 

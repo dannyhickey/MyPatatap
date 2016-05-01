@@ -27,6 +27,18 @@ animated.fillColor.hue += 1; //Adding one to the hue of the animated circle
 animated.scale(.99);//scales down the circle
 }
 
+function generateRandomColours(num)
+{
+  //make empty array
+  var arr = [];
+  //add "num" random colours to the array
+  for (var i = 0; i < num; i++) {
+    //push random colour to the array
+    arr.push(randomColour());
+  }
+  return arr;
+}
+
 function randomColour(){
 //choose a "red" from 0 to 255
 var r = Math.floor(Math.random() * 256);

@@ -6,6 +6,8 @@
 <link rel="stylesheet" href="styles.css">
 
 <script type="text/paperscript" canvas="myCanvas">
+var circles = [];
+
   function onKeyDown(event) {
 
   	var rand = Point.random();//random point between zero and one non inclusive.
@@ -14,8 +16,10 @@
 
   	var pos = screenCanvas * rand;// the pos variable stores a random generated point on the screen
 
+    var newCircle = new Path.Circle(pos, 50);
+    newCircle.fillColor = generateRandomColours(1);
 	// When a key is pressed, draw circle
-	 new Path.Circle(pos, 50).fillColor = generateRandomColours(1);//drawing a random coloured circle at a random 'pos' on the screen.
+	 circles.push(newCircle);//drawing a random coloured circle at a random 'pos' on the screen.
 }
 
 var animated = new Path.Circle(new Point(300,300), 100);
@@ -23,8 +27,13 @@ animated.fillColor = "green";
 
 function onFrame(event)
 {
+for(var i = 0; i < circles.length; i++)
+{
+console.log(circles[i]);
+circles[i].fillColor.hue += 1;
+}
 animated.fillColor.hue += 1; //Adding one to the hue of the animated circle
-animated.scale(.99);//scales down the circle
+//animated.scale(.99);//scales down the circle
 }
 
 function generateRandomColours(num)

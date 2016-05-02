@@ -29,11 +29,10 @@ function onFrame(event)
 {
 for(var i = 0; i < circles.length; i++)
 {
-console.log(circles[i]);
 circles[i].fillColor.hue += 1;
+circles[i].scale(.99);//scales down the circle
 }
 animated.fillColor.hue += 1; //Adding one to the hue of the animated circle
-//animated.scale(.99);//scales down the circle
 }
 
 function generateRandomColours(num)

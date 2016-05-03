@@ -124,7 +124,12 @@ var circles = [];
 
     	var pos = screenCanvas * rand;// the pos variable stores a random generated point on the screen
 
-      var newCircle = new Path.Circle(pos, 300);
+      var newCircle = new Path.Circle({
+          center: screenCanvas * rand,
+          radius: 300,
+          fillColor: keys[event.key].color
+      });
+      
       newCircle.fillColor = keys[event.key].color;
       keys[event.key].sound.play();
     	circles.push(newCircle);//drawing a random coloured circle at a random 'pos' on the screen.
@@ -137,7 +142,11 @@ function onFrame(event)
   {
     circles[i].fillColor.hue += 1;
     circles[i].scale(.95);//scales down the circle
+    if (circles[i].radius < 1) {
+      circles.splice(i, 1); // removing circles from memory
+    }
   }
+
 }
 
 function generateRandomColours(num)

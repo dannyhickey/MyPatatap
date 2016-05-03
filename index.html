@@ -11,11 +11,21 @@ var sound = new Howl({
   urls: ['sounds/ufo.mp3']
 });
 
+var sound2 = new Howl({
+  urls: ['sounds/moon.mp3']
+});
+
 var circles = [];
 
   function onKeyDown(event) {
 
-    sound.play();
+    if(event.key === "a"){
+      sound.play();//plays the sound from sounds folder
+    }
+    if(event.key === "s"){
+      sound2.play();
+    }
+
 
   	var rand = Point.random();//random point between zero and one non inclusive.
 
